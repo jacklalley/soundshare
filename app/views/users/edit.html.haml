@@ -1,0 +1,39 @@
+= form_for @user do |f|
+
+  - if @user.errors.any?
+    .error-messages
+      %h2 Form is invalid
+      %ul
+        - for message in @user.errors.full_messages
+          %li= message
+
+  .field
+    = f.label :name
+    %br/
+    = f.text_field :name, :autofocus => true
+  .field
+    = f.label 'Profile Picture'
+    %br/
+    = f.file_field :profile_image
+  .field
+    = f.label :bio
+    %br/
+    = f.text_area :bio, :autofocus => true
+  .field
+    %label Font color
+    %select{name: :font_color}
+      %option Select:
+      %option{value: "color: green;"} Green
+      %option{value: "color: red;"} Red
+    %br
+    %label Background color
+    %select{name: :bg_color}
+      %option Select:
+      %option{value: "background-color: green;"} Green
+      %option{value: "background-color: red;"} Red
+  / .field
+  /   = f.label :css
+  /   %br/
+  /   = f.text_area :css, :autofocus => true
+  .actions
+    = f.submit

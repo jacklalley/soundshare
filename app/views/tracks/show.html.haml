@@ -1,0 +1,23 @@
+%h1 #{@track.title} by #{@track.user.username}
+
+%audio{controls: "controls"}
+  %source{src: "#{@track.track_file}"}
+
+
+%h1 Comments
+- @track.comments.each do |comment|
+  %li
+    = comment.text
+    %br
+    = comment.user.username
+
+= form_for @comment do |f|
+  .field
+    = hidden_field_tag "comment[track_id]", @track.id
+    = f.text_field :text
+  .actions
+    = f.submit
+
+= link_to "remove", track_path, :method => :delete
+|
+= link_to "Back to user profile", @track.user

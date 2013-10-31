@@ -1,0 +1,21 @@
+= form_for @track do |f|
+
+  - if @track.errors.any?
+    .error-messages
+      %h2 Form is invalid
+      %ul
+        - for message in @track.errors.full_messages
+          %li= message
+
+  .field
+    = f.label :title
+    %br/
+    = f.text_field :title, :autofocus => true
+  %br
+  .field
+    = f.label :Track
+    %br
+    = f.file_field :track_file
+  %br
+  .actions
+    = f.submit

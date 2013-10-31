@@ -1,0 +1,45 @@
+!!! 5
+/[if lt IE 7] <html class="no-js lt-ie9 lt-ie8 lt-ie7">
+/[if IE 7] <html class="no-js lt-ie9 lt-ie8">
+/[if IE 8] <html class="no-js lt-ie9">
+/ [if gt IE 8]><!
+%html.no-js
+  / <![endif]
+  %head
+    %meta{charset: "utf-8"}/
+    %meta{content: "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %title
+    %meta{content: "", name: "description"}/
+    %meta{content: "width=device-width, initial-scale=1", name: "viewport"}/
+    %link{href: "http://fonts.googleapis.com/css?family=Montserrat:400,700", rel: "stylesheet", type: "text/css"}/
+    %link{href: "/assets/normalize.css", rel: "stylesheet"}/
+    %link{href: "/assets/bootstrap.min.css", rel: "stylesheet"}/
+    %link{href: "/assets/main.css", rel: "stylesheet"}/
+    = javascript_include_tag "application"
+    %style
+      = @style
+  %body
+    .header
+      .header_content.container
+        %img.logo{src: '/assets/logo.svg'}
+
+        %ul.nav
+          - if current_user
+            %li= link_to 'Logout', logout_path, method: :delete
+          - else
+            %li= link_to "Login", login_path
+            %li= link_to "Sign up", signup_path
+          
+          - if can? :read, :all
+            %li= link_to('Profile', current_user)
+
+          - if can? :create, Track
+            %li= link_to('Upload', new_track_path)
+
+          - if can? :read, Track
+            %li= link_to('Discover', tracks_path)
+          
+    .yield_content.container
+      = yield 
+
+

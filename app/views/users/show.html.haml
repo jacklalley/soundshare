@@ -1,0 +1,22 @@
+
+%h1 #{@user.username}'s profile
+
+%img{src: "#{@user.profile_image}"}
+
+%h2 #{@user.name}
+%p #{@user.bio}
+
+%h2 Tracks
+
+- @user.tracks.each do |track|
+  %ul
+    %li
+      = link_to track.title, track
+      %br
+      %audio{controls: "controls"}
+        %source{src: "#{track.track_file}"}
+
+
+= link_to "Remove User", user_path, :method => :delete
+|
+= link_to "Profile Settings", edit_user_path
