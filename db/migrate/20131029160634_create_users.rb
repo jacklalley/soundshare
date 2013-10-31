@@ -8,6 +8,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :role
       t.text :bio
       t.text :css
+      t.boolean :is_first_login
 
       t.timestamps
     end

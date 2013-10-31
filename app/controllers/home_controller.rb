@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
 
-  layout :home_layout
+  layout "home"
 
   def index 
   end

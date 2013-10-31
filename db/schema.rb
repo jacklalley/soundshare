@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(:version => 20131030161250) do
     t.text     "text"
     t.integer  "user_id"
     t.integer  "track_id"
+    t.boolean  "is_flagged"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -35,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20131030161250) do
     t.string   "role"
     t.text     "bio"
     t.text     "css"
+    t.boolean  "is_first_login"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.string   "profile_image"

@@ -1,0 +1,15 @@
+.flaggedcomments
+  %h1 Flagged Comments
+  - @comments.each do |comment|
+    %ul
+      %li
+        Comment:
+        = comment.text
+        %br
+        User:
+        = comment.user.username
+        %br
+        Track:
+        = comment.track.title
+        %br
+        = link_to "Remove Comment", comment, :method => :delete
