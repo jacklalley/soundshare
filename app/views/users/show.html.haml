@@ -1,20 +1,20 @@
 
-%h1 #{@user.username}'s profile
+.profile-left.col-md-4
 
-%img{src: "#{@user.profile_image}"}
+  %img.profile-image{src: "#{@user.profile_image}"}
+  .profile-left-text
+    %h1 #{@user.username}
+    %p #{@user.name}
+    %p Bio: #{@user.bio}
 
-%h2 #{@user.name}
-%p #{@user.bio}
 
-%h2 Tracks
-
-- @user.tracks.each do |track|
-  %ul
-    %li
-      = link_to track.title, track
-      %br
-      %audio{controls: "controls"}
-        %source{src: "#{track.track_file}"}
+.profile-right.col-md-8
+  - @user.tracks.each do |track|
+    .discover-full
+      .profile-track 
+        %p.profile-track-title= link_to track.title, track
+        %audio.discover-track-audio{controls: "controls"}
+          %source{src: "#{track.track_file}"}
 
 
 = link_to "Remove User", user_path, :method => :delete

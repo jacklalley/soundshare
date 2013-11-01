@@ -1,27 +1,27 @@
 
 
+.track
+  .track-text  
+    %h1.track-title #{@track.title} 
+    %p.track-username by #{@track.user.username}
+  .track-player
+    %audio.track-audio{controls: "controls"}
+      %source{src: "#{@track.track_file}"}
 
-%h1 #{@track.title} 
-%h3 by #{@track.user.username}
 
-%audio{controls: "controls"}
-  %source{src: "#{@track.track_file}"}
-
-
-%h1 Comments
 - @track.comments.each do |comment|
-  %li
-    = comment.text
-    = link_to "Flag", "/tracks/#{@track.id}/comments/#{comment.id}/flag"
-    %br
-    = comment.user.username
+  .comments
+    %img.user-thumbnail{src: "#{comment.user.profile_image}"}
+    %p.comment-user= comment.user.username
+    %p.comment-text= comment.text
+    = link_to "Flag", "/tracks/#{@track.id}/comments/#{comment.id}/flag", class: 'comment-flag'
 
 = form_for @comment do |f|
   .field
     = hidden_field_tag "comment[track_id]", @track.id
-    = f.text_field :text
+    = f.text_field :text, class: 'comment-field'
   .actions
-    = f.submit class: 'form-button'
+    = f.submit class: 'comment-form-button'
 
 = link_to "remove", track_path, :method => :delete
 |

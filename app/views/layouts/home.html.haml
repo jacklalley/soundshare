@@ -21,7 +21,7 @@
   %body
     .header
       .header_content.container
-        %img.logo{src: '/assets/logo.svg'}
+        %img.logo{src: '/assets/logo.png'}
 
         %ul.nav
           - if current_user
@@ -38,8 +38,11 @@
 
           - if can? :read, Track
             %li= link_to('Discover', tracks_path)
+
+          - if can? :read, :flagged
+            %li= link_to('Moderate', flagged_comments_path)
           
-    .yield_content
+    .yield_content.flipInX
       = yield 
 
 

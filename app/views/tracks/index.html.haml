@@ -1,10 +1,10 @@
-%h1 Tracks
-
-.track
-  - @tracks.each do |track|
-    %ul
-      %li
-        = link_to track.title, track
-        %br
-        %audio{controls: "controls"}
-          %source{src: "#{track.track_file}"}
+.discover-explain
+  %h3 Discover
+  %p See all the latest tracks added to the site.
+- @tracks.each do |track|
+  .discover-full
+    %img.discover-user-thumbnail{src: "#{track.user.profile_image}"}
+    .discover-track 
+      %p.discover-track-title= link_to track.title, track
+      %audio.discover-track-audio{controls: "controls"}
+        %source{src: "#{track.track_file}"}

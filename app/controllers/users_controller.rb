@@ -26,7 +26,7 @@ class UsersController < ApplicationController
     @user = User.find params[:id]
 
     # build css customization code
-    css = "body { #{params[:font_color]} #{params[:bg_color]} }"
+    css = "body { #{params[:colour_scheme]}}"
     params[:user][:css] = css
     
     if @user.update_attributes(params[:user])

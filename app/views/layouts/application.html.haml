@@ -14,6 +14,7 @@
     %link{href: "http://fonts.googleapis.com/css?family=Montserrat:400,700", rel: "stylesheet", type: "text/css"}/
     %link{href: "/assets/normalize.css", rel: "stylesheet"}/
     %link{href: "/assets/bootstrap.min.css", rel: "stylesheet"}/
+    %link{href: "/assets/animate.min.css", rel: "stylesheet"}/
     %link{href: "/assets/main.css", rel: "stylesheet"}/
     = javascript_include_tag "application"
     %style
@@ -21,8 +22,8 @@
   %body
     .header
       .header_content.container
-        %img.logo{src: '/assets/logo.svg'}
-
+        %a{href: "/"}
+          %img.logo{src: '/assets/logo.png'}
         %ul.nav
           - if current_user
             %li= link_to 'Logout', logout_path, method: :delete
@@ -38,8 +39,11 @@
 
           - if can? :read, Track
             %li= link_to('Discover', tracks_path)
+
+          - if can? :read, :flagged
+            %li= link_to('Moderate', flagged_comments_path)
           
-    .yield_content.container
+    .yield_content.container.fadeIn
       = yield 
 
 
