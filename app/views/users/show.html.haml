@@ -5,7 +5,11 @@
   .profile-left-text
     %h1 #{@user.username}
     %p #{@user.name}
-    %p Bio: #{@user.bio}
+    %p #{@user.bio}
+    %a= link_to "Profile Settings", edit_user_path
+    %br
+    - if can? :destroy, User
+      %a= link_to "Remove User", user_path, :method => :delete
 
 
 .profile-right.col-md-8
@@ -17,6 +21,5 @@
           %source{src: "#{track.track_file}"}
 
 
-= link_to "Remove User", user_path, :method => :delete
-|
-= link_to "Profile Settings", edit_user_path
+
+

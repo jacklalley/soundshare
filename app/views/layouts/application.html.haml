@@ -22,7 +22,7 @@
   %body
     .header
       .header_content.container
-        %a{href: "/"}
+        %a{href: "#{root_url}"}
           %img.logo{src: '/assets/logo.png'}
         %ul.nav
           - if current_user
@@ -31,7 +31,7 @@
             %li= link_to "Login", login_path
             %li= link_to "Sign up", signup_path
           
-          - if can? :read, :all
+          - if can? :read, User
             %li= link_to('Profile', current_user)
 
           - if can? :create, Track

@@ -6,13 +6,13 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-user1 = User.create!(:name 'Jack Lalley', :username 'Jack', :email 'jack@jack.com', :profile_image, :password 'jack', :password_confirmation 'jack', :role 'admin')
-user2 = User.create!(:name 'Noel Gallagher', :username 'Gallagher13', :email 'noel@noel.com', :profile_image, :password 'noel', :password_confirmation 'noel', :role 'user')
+user1 = User.create!(name: 'Jack Lalley', username: 'Jack', email: 'jack@jack.com', password: 'jack', password_confirmation:'jack', role: 'admin')
+user2 = User.create!(name: 'Noel Gallagher', username: 'Gallagher13', email: 'noel@noel.com', password: 'noel', password_confirmation: 'noel', role: 'user')
 
-track1 = Track.create!(:title 'Oasis - Wonderwall')
-track2 = Track.create!(:title 'Beyonce - Halo')
-track3 = Track.create!(:title 'Chris Brown - Forever')
-track4 = Track.create!(:title 'Rihanna - Stay')
+track1 = Track.create!(title: 'Oasis - Wonderwall')
+track2 = Track.create!(title: 'Beyonce - Halo')
+track3 = Track.create!(title: 'Chris Brown - Forever')
+track4 = Track.create!(title:'Rihanna - Stay')
 
 
 user2.tracks << track1
