@@ -4,7 +4,7 @@
   .track-text  
     %h1.track-title #{@track.title} 
     %p.track-username=link_to "#{@track.user.username}", @track.user
-    /*  = if can? :destroy, User
+    / *  = if can? :destroy, User
     /*  = link_to "Remove this track", track_path, :method => :delete
   .track-player
     %audio.track-audio{controls: "controls"}

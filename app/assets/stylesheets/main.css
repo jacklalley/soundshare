@@ -376,6 +376,10 @@ textarea {
 
 }
 
+.form-button:hover {
+    background: #30daec;
+}
+
 .form-button-upload {
     border-radius: 3px;
     padding: 17px 105px;
@@ -397,6 +401,11 @@ textarea {
     text-transform: uppercase;
     color: white;
 
+}
+
+
+.form-button-upload:hover {
+    background: #9e70ef;
 }
 
 .sign_up {
@@ -525,7 +534,9 @@ textarea {
     color: white;
 }
 
-
+.comment-form-button:hover {
+    background: #43edcb;
+}
 
 
 /* Discover Tracks */
